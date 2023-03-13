@@ -1,0 +1,553 @@
+<!doctype html>
+<html>
+<head>
+<meta charset='UTF-8'><meta name='viewport' content='width=device-width initial-scale=1'>
+<title>计算机网络实验6-对比实验</title><link href='https://fonts.loli.net/css?family=Open+Sans:400italic,700italic,700,400&subset=latin,latin-ext' rel='stylesheet' type='text/css' /><style type='text/css'>html {overflow-x: initial !important;}:root { --bg-color:#ffffff; --text-color:#333333; --select-text-bg-color:#B5D6FC; --select-text-font-color:auto; --monospace:"Lucida Console",Consolas,"Courier",monospace; --title-bar-height:20px; }
+.mac-os-11 { --title-bar-height:28px; }
+html { font-size: 14px; background-color: var(--bg-color); color: var(--text-color); font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; -webkit-font-smoothing: antialiased; }
+body { margin: 0px; padding: 0px; height: auto; bottom: 0px; top: 0px; left: 0px; right: 0px; font-size: 1rem; line-height: 1.42857; overflow-x: hidden; background: inherit; tab-size: 4; }
+iframe { margin: auto; }
+a.url { word-break: break-all; }
+a:active, a:hover { outline: 0px; }
+.in-text-selection, ::selection { text-shadow: none; background: var(--select-text-bg-color); color: var(--select-text-font-color); }
+#write { margin: 0px auto; height: auto; width: inherit; word-break: normal; overflow-wrap: break-word; position: relative; white-space: normal; overflow-x: visible; padding-top: 36px; }
+#write.first-line-indent p { text-indent: 2em; }
+#write.first-line-indent li p, #write.first-line-indent p * { text-indent: 0px; }
+#write.first-line-indent li { margin-left: 2em; }
+.for-image #write { padding-left: 8px; padding-right: 8px; }
+body.typora-export { padding-left: 30px; padding-right: 30px; }
+.typora-export .footnote-line, .typora-export li, .typora-export p { white-space: pre-wrap; }
+.typora-export .task-list-item input { pointer-events: none; }
+@media screen and (max-width: 500px) {
+  body.typora-export { padding-left: 0px; padding-right: 0px; }
+  #write { padding-left: 20px; padding-right: 20px; }
+  .CodeMirror-sizer { margin-left: 0px !important; }
+  .CodeMirror-gutters { display: none !important; }
+}
+#write li > figure:last-child { margin-bottom: 0.5rem; }
+#write ol, #write ul { position: relative; }
+img { max-width: 100%; vertical-align: middle; image-orientation: from-image; }
+button, input, select, textarea { color: inherit; font: inherit; }
+input[type="checkbox"], input[type="radio"] { line-height: normal; padding: 0px; }
+*, ::after, ::before { box-sizing: border-box; }
+#write h1, #write h2, #write h3, #write h4, #write h5, #write h6, #write p, #write pre { width: inherit; }
+#write h1, #write h2, #write h3, #write h4, #write h5, #write h6, #write p { position: relative; }
+p { line-height: inherit; }
+h1, h2, h3, h4, h5, h6 { break-after: avoid-page; break-inside: avoid; orphans: 4; }
+p { orphans: 4; }
+h1 { font-size: 2rem; }
+h2 { font-size: 1.8rem; }
+h3 { font-size: 1.6rem; }
+h4 { font-size: 1.4rem; }
+h5 { font-size: 1.2rem; }
+h6 { font-size: 1rem; }
+.md-math-block, .md-rawblock, h1, h2, h3, h4, h5, h6, p { margin-top: 1rem; margin-bottom: 1rem; }
+.hidden { display: none; }
+.md-blockmeta { color: rgb(204, 204, 204); font-weight: 700; font-style: italic; }
+a { cursor: pointer; }
+sup.md-footnote { padding: 2px 4px; background-color: rgba(238, 238, 238, 0.7); color: rgb(85, 85, 85); border-radius: 4px; cursor: pointer; }
+sup.md-footnote a, sup.md-footnote a:hover { color: inherit; text-transform: inherit; text-decoration: inherit; }
+#write input[type="checkbox"] { cursor: pointer; width: inherit; height: inherit; }
+figure { overflow-x: auto; margin: 1.2em 0px; max-width: calc(100% + 16px); padding: 0px; }
+figure > table { margin: 0px; }
+tr { break-inside: avoid; break-after: auto; }
+thead { display: table-header-group; }
+table { border-collapse: collapse; border-spacing: 0px; width: 100%; overflow: auto; break-inside: auto; text-align: left; }
+table.md-table td { min-width: 32px; }
+.CodeMirror-gutters { border-right: 0px; background-color: inherit; }
+.CodeMirror-linenumber { user-select: none; }
+.CodeMirror { text-align: left; }
+.CodeMirror-placeholder { opacity: 0.3; }
+.CodeMirror pre { padding: 0px 4px; }
+.CodeMirror-lines { padding: 0px; }
+div.hr:focus { cursor: none; }
+#write pre { white-space: pre-wrap; }
+#write.fences-no-line-wrapping pre { white-space: pre; }
+#write pre.ty-contain-cm { white-space: normal; }
+.CodeMirror-gutters { margin-right: 4px; }
+.md-fences { font-size: 0.9rem; display: block; break-inside: avoid; text-align: left; overflow: visible; white-space: pre; background: inherit; position: relative !important; }
+.md-diagram-panel { width: 100%; margin-top: 10px; text-align: center; padding-top: 0px; padding-bottom: 8px; overflow-x: auto; }
+#write .md-fences.mock-cm { white-space: pre-wrap; }
+.md-fences.md-fences-with-lineno { padding-left: 0px; }
+#write.fences-no-line-wrapping .md-fences.mock-cm { white-space: pre; overflow-x: auto; }
+.md-fences.mock-cm.md-fences-with-lineno { padding-left: 8px; }
+.CodeMirror-line, twitterwidget { break-inside: avoid; }
+.footnotes { opacity: 0.8; font-size: 0.9rem; margin-top: 1em; margin-bottom: 1em; }
+.footnotes + .footnotes { margin-top: 0px; }
+.md-reset { margin: 0px; padding: 0px; border: 0px; outline: 0px; vertical-align: top; background: 0px 0px; text-decoration: none; text-shadow: none; float: none; position: static; width: auto; height: auto; white-space: nowrap; cursor: inherit; -webkit-tap-highlight-color: transparent; line-height: normal; font-weight: 400; text-align: left; box-sizing: content-box; direction: ltr; }
+li div { padding-top: 0px; }
+blockquote { margin: 1rem 0px; }
+li .mathjax-block, li p { margin: 0.5rem 0px; }
+li blockquote { margin: 1rem 0px; }
+li { margin: 0px; position: relative; }
+blockquote > :last-child { margin-bottom: 0px; }
+blockquote > :first-child, li > :first-child { margin-top: 0px; }
+.footnotes-area { color: rgb(136, 136, 136); margin-top: 0.714rem; padding-bottom: 0.143rem; white-space: normal; }
+#write .footnote-line { white-space: pre-wrap; }
+@media print {
+  body, html { border: 1px solid transparent; height: 99%; break-after: avoid; break-before: avoid; font-variant-ligatures: no-common-ligatures; }
+  #write { margin-top: 0px; padding-top: 0px; border-color: transparent !important; }
+  .typora-export * { -webkit-print-color-adjust: exact; }
+  .typora-export #write { break-after: avoid; }
+  .typora-export #write::after { height: 0px; }
+  .is-mac table { break-inside: avoid; }
+}
+.footnote-line { margin-top: 0.714em; font-size: 0.7em; }
+a img, img a { cursor: pointer; }
+pre.md-meta-block { font-size: 0.8rem; min-height: 0.8rem; white-space: pre-wrap; background: rgb(204, 204, 204); display: block; overflow-x: hidden; }
+p > .md-image:only-child:not(.md-img-error) img, p > img:only-child { display: block; margin: auto; }
+#write.first-line-indent p > .md-image:only-child:not(.md-img-error) img { left: -2em; position: relative; }
+p > .md-image:only-child { display: inline-block; width: 100%; }
+#write .MathJax_Display { margin: 0.8em 0px 0px; }
+.md-math-block { width: 100%; }
+.md-math-block:not(:empty)::after { display: none; }
+.MathJax_ref { fill: currentcolor; }
+[contenteditable="true"]:active, [contenteditable="true"]:focus, [contenteditable="false"]:active, [contenteditable="false"]:focus { outline: 0px; box-shadow: none; }
+.md-task-list-item { position: relative; list-style-type: none; }
+.task-list-item.md-task-list-item { padding-left: 0px; }
+.md-task-list-item > input { position: absolute; top: 0px; left: 0px; margin-left: -1.2em; margin-top: calc(1em - 10px); border: none; }
+.math { font-size: 1rem; }
+.md-toc { min-height: 3.58rem; position: relative; font-size: 0.9rem; border-radius: 10px; }
+.md-toc-content { position: relative; margin-left: 0px; }
+.md-toc-content::after, .md-toc::after { display: none; }
+.md-toc-item { display: block; color: rgb(65, 131, 196); }
+.md-toc-item a { text-decoration: none; }
+.md-toc-inner:hover { text-decoration: underline; }
+.md-toc-inner { display: inline-block; cursor: pointer; }
+.md-toc-h1 .md-toc-inner { margin-left: 0px; font-weight: 700; }
+.md-toc-h2 .md-toc-inner { margin-left: 2em; }
+.md-toc-h3 .md-toc-inner { margin-left: 4em; }
+.md-toc-h4 .md-toc-inner { margin-left: 6em; }
+.md-toc-h5 .md-toc-inner { margin-left: 8em; }
+.md-toc-h6 .md-toc-inner { margin-left: 10em; }
+@media screen and (max-width: 48em) {
+  .md-toc-h3 .md-toc-inner { margin-left: 3.5em; }
+  .md-toc-h4 .md-toc-inner { margin-left: 5em; }
+  .md-toc-h5 .md-toc-inner { margin-left: 6.5em; }
+  .md-toc-h6 .md-toc-inner { margin-left: 8em; }
+}
+a.md-toc-inner { font-size: inherit; font-style: inherit; font-weight: inherit; line-height: inherit; }
+.footnote-line a:not(.reversefootnote) { color: inherit; }
+.md-attr { display: none; }
+.md-fn-count::after { content: "."; }
+code, pre, samp, tt { font-family: var(--monospace); }
+kbd { margin: 0px 0.1em; padding: 0.1em 0.6em; font-size: 0.8em; color: rgb(36, 39, 41); background: rgb(255, 255, 255); border: 1px solid rgb(173, 179, 185); border-radius: 3px; box-shadow: rgba(12, 13, 14, 0.2) 0px 1px 0px, rgb(255, 255, 255) 0px 0px 0px 2px inset; white-space: nowrap; vertical-align: middle; }
+.md-comment { color: rgb(162, 127, 3); opacity: 0.8; font-family: var(--monospace); }
+code { text-align: left; vertical-align: initial; }
+a.md-print-anchor { white-space: pre !important; border-width: initial !important; border-style: none !important; border-color: initial !important; display: inline-block !important; position: absolute !important; width: 1px !important; right: 0px !important; outline: 0px !important; background: 0px 0px !important; text-decoration: initial !important; text-shadow: initial !important; }
+.md-inline-math .MathJax_SVG .noError { display: none !important; }
+.html-for-mac .inline-math-svg .MathJax_SVG { vertical-align: 0.2px; }
+.md-math-block .MathJax_SVG_Display { text-align: center; margin: 0px; position: relative; text-indent: 0px; max-width: none; max-height: none; min-height: 0px; min-width: 100%; width: auto; overflow-y: hidden; display: block !important; }
+.MathJax_SVG_Display, .md-inline-math .MathJax_SVG_Display { width: auto; margin: inherit; display: inline-block !important; }
+.MathJax_SVG .MJX-monospace { font-family: var(--monospace); }
+.MathJax_SVG .MJX-sans-serif { font-family: sans-serif; }
+.MathJax_SVG { display: inline; font-style: normal; font-weight: 400; line-height: normal; zoom: 90%; text-indent: 0px; text-align: left; text-transform: none; letter-spacing: normal; word-spacing: normal; overflow-wrap: normal; white-space: nowrap; float: none; direction: ltr; max-width: none; max-height: none; min-width: 0px; min-height: 0px; border: 0px; padding: 0px; margin: 0px; }
+.MathJax_SVG * { transition: none 0s ease 0s; }
+.MathJax_SVG_Display svg { vertical-align: middle !important; margin-bottom: 0px !important; margin-top: 0px !important; }
+.os-windows.monocolor-emoji .md-emoji { font-family: "Segoe UI Symbol", sans-serif; }
+.md-diagram-panel > svg { max-width: 100%; }
+[lang="flow"] svg, [lang="mermaid"] svg { max-width: 100%; height: auto; }
+[lang="mermaid"] .node text { font-size: 1rem; }
+table tr th { border-bottom: 0px; }
+video { max-width: 100%; display: block; margin: 0px auto; }
+iframe { max-width: 100%; width: 100%; border: none; }
+.highlight td, .highlight tr { border: 0px; }
+mark { background: rgb(255, 255, 0); color: rgb(0, 0, 0); }
+.md-html-inline .md-plain, .md-html-inline strong, mark .md-inline-math, mark strong { color: inherit; }
+mark .md-meta { color: rgb(0, 0, 0); opacity: 0.3 !important; }
+@media print {
+  .typora-export h1, .typora-export h2, .typora-export h3, .typora-export h4, .typora-export h5, .typora-export h6 { break-inside: avoid; }
+}
+.md-diagram-panel .messageText { stroke: none !important; }
+.md-diagram-panel .start-state { fill: var(--node-fill); }
+.md-diagram-panel .edgeLabel rect { opacity: 1 !important; }
+.md-require-zoom-fix foreignobject { font-size: var(--mermaid-font-zoom); }
+
+
+:root {
+    --side-bar-bg-color: #fafafa;
+    --control-text-color: #777;
+}
+
+@include-when-export url(https://fonts.loli.net/css?family=Open+Sans:400italic,700italic,700,400&subset=latin,latin-ext);
+
+/* open-sans-regular - latin-ext_latin */
+  /* open-sans-italic - latin-ext_latin */
+    /* open-sans-700 - latin-ext_latin */
+    /* open-sans-700italic - latin-ext_latin */
+  html {
+    font-size: 16px;
+}
+
+body {
+    font-family: "Open Sans","Clear Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    color: rgb(51, 51, 51);
+    line-height: 1.6;
+}
+
+#write {
+    max-width: 860px;
+  	margin: 0 auto;
+  	padding: 30px;
+    padding-bottom: 100px;
+}
+
+@media only screen and (min-width: 1400px) {
+	#write {
+		max-width: 1024px;
+	}
+}
+
+@media only screen and (min-width: 1800px) {
+	#write {
+		max-width: 1200px;
+	}
+}
+
+#write > ul:first-child,
+#write > ol:first-child{
+    margin-top: 30px;
+}
+
+a {
+    color: #4183C4;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    position: relative;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    font-weight: bold;
+    line-height: 1.4;
+    cursor: text;
+}
+h1:hover a.anchor,
+h2:hover a.anchor,
+h3:hover a.anchor,
+h4:hover a.anchor,
+h5:hover a.anchor,
+h6:hover a.anchor {
+    text-decoration: none;
+}
+h1 tt,
+h1 code {
+    font-size: inherit;
+}
+h2 tt,
+h2 code {
+    font-size: inherit;
+}
+h3 tt,
+h3 code {
+    font-size: inherit;
+}
+h4 tt,
+h4 code {
+    font-size: inherit;
+}
+h5 tt,
+h5 code {
+    font-size: inherit;
+}
+h6 tt,
+h6 code {
+    font-size: inherit;
+}
+h1 {
+    font-size: 2.25em;
+    line-height: 1.2;
+    border-bottom: 1px solid #eee;
+}
+h2 {
+    font-size: 1.75em;
+    line-height: 1.225;
+    border-bottom: 1px solid #eee;
+}
+
+/*@media print {
+    .typora-export h1,
+    .typora-export h2 {
+        border-bottom: none;
+        padding-bottom: initial;
+    }
+
+    .typora-export h1::after,
+    .typora-export h2::after {
+        content: "";
+        display: block;
+        height: 100px;
+        margin-top: -96px;
+        border-top: 1px solid #eee;
+    }
+}*/
+
+h3 {
+    font-size: 1.5em;
+    line-height: 1.43;
+}
+h4 {
+    font-size: 1.25em;
+}
+h5 {
+    font-size: 1em;
+}
+h6 {
+   font-size: 1em;
+    color: #777;
+}
+p,
+blockquote,
+ul,
+ol,
+dl,
+table{
+    margin: 0.8em 0;
+}
+li>ol,
+li>ul {
+    margin: 0 0;
+}
+hr {
+    height: 2px;
+    padding: 0;
+    margin: 16px 0;
+    background-color: #e7e7e7;
+    border: 0 none;
+    overflow: hidden;
+    box-sizing: content-box;
+}
+
+li p.first {
+    display: inline-block;
+}
+ul,
+ol {
+    padding-left: 30px;
+}
+ul:first-child,
+ol:first-child {
+    margin-top: 0;
+}
+ul:last-child,
+ol:last-child {
+    margin-bottom: 0;
+}
+blockquote {
+    border-left: 4px solid #dfe2e5;
+    padding: 0 15px;
+    color: #777777;
+}
+blockquote blockquote {
+    padding-right: 0;
+}
+table {
+    padding: 0;
+    word-break: initial;
+}
+table tr {
+    border-top: 1px solid #dfe2e5;
+    margin: 0;
+    padding: 0;
+}
+table tr:nth-child(2n),
+thead {
+    background-color: #f8f8f8;
+}
+table th {
+    font-weight: bold;
+    border: 1px solid #dfe2e5;
+    border-bottom: 0;
+    margin: 0;
+    padding: 6px 13px;
+}
+table td {
+    border: 1px solid #dfe2e5;
+    margin: 0;
+    padding: 6px 13px;
+}
+table th:first-child,
+table td:first-child {
+    margin-top: 0;
+}
+table th:last-child,
+table td:last-child {
+    margin-bottom: 0;
+}
+
+.CodeMirror-lines {
+    padding-left: 4px;
+}
+
+.code-tooltip {
+    box-shadow: 0 1px 1px 0 rgba(0,28,36,.3);
+    border-top: 1px solid #eef2f2;
+}
+
+.md-fences,
+code,
+tt {
+    border: 1px solid #e7eaed;
+    background-color: #f8f8f8;
+    border-radius: 3px;
+    padding: 0;
+    padding: 2px 4px 0px 4px;
+    font-size: 0.9em;
+}
+
+code {
+    background-color: #f3f4f4;
+    padding: 0 2px 0 2px;
+}
+
+.md-fences {
+    margin-bottom: 15px;
+    margin-top: 15px;
+    padding-top: 8px;
+    padding-bottom: 6px;
+}
+
+
+.md-task-list-item > input {
+  margin-left: -1.3em;
+}
+
+@media print {
+    html {
+        font-size: 13px;
+    }
+    table,
+    pre {
+        page-break-inside: avoid;
+    }
+    pre {
+        word-wrap: break-word;
+    }
+}
+
+.md-fences {
+	background-color: #f8f8f8;
+}
+#write pre.md-meta-block {
+	padding: 1rem;
+    font-size: 85%;
+    line-height: 1.45;
+    background-color: #f7f7f7;
+    border: 0;
+    border-radius: 3px;
+    color: #777777;
+    margin-top: 0 !important;
+}
+
+.mathjax-block>.code-tooltip {
+	bottom: .375rem;
+}
+
+.md-mathjax-midline {
+    background: #fafafa;
+}
+
+#write>h3.md-focus:before{
+	left: -1.5625rem;
+	top: .375rem;
+}
+#write>h4.md-focus:before{
+	left: -1.5625rem;
+	top: .285714286rem;
+}
+#write>h5.md-focus:before{
+	left: -1.5625rem;
+	top: .285714286rem;
+}
+#write>h6.md-focus:before{
+	left: -1.5625rem;
+	top: .285714286rem;
+}
+.md-image>.md-meta {
+    /*border: 1px solid #ddd;*/
+    border-radius: 3px;
+    padding: 2px 0px 0px 4px;
+    font-size: 0.9em;
+    color: inherit;
+}
+
+.md-tag {
+    color: #a7a7a7;
+    opacity: 1;
+}
+
+.md-toc { 
+    margin-top:20px;
+    padding-bottom:20px;
+}
+
+.sidebar-tabs {
+    border-bottom: none;
+}
+
+#typora-quick-open {
+    border: 1px solid #ddd;
+    background-color: #f8f8f8;
+}
+
+#typora-quick-open-item {
+    background-color: #FAFAFA;
+    border-color: #FEFEFE #e5e5e5 #e5e5e5 #eee;
+    border-style: solid;
+    border-width: 1px;
+}
+
+/** focus mode */
+.on-focus-mode blockquote {
+    border-left-color: rgba(85, 85, 85, 0.12);
+}
+
+header, .context-menu, .megamenu-content, footer{
+    font-family: "Segoe UI", "Arial", sans-serif;
+}
+
+.file-node-content:hover .file-node-icon,
+.file-node-content:hover .file-node-open-state{
+    visibility: visible;
+}
+
+.mac-seamless-mode #typora-sidebar {
+    background-color: #fafafa;
+    background-color: var(--side-bar-bg-color);
+}
+
+.md-lang {
+    color: #b4654d;
+}
+
+.html-for-mac .context-menu {
+    --item-hover-bg-color: #E6F0FE;
+}
+
+#md-notification .btn {
+    border: 0;
+}
+
+.dropdown-menu .divider {
+    border-color: #e5e5e5;
+}
+
+.ty-preferences .window-content {
+    background-color: #fafafa;
+}
+
+.ty-preferences .nav-group-item.active {
+    color: white;
+    background: #999;
+}
+
+ :root {--mermaid-font-zoom:2.25em ;} 
+</style>
+</head>
+<body class='typora-export os-windows'>
+<div id='write'  class=''><h1><a name="计算机网络实验6-对比实验" class="md-header-anchor"></a><span>计算机网络实验6-对比实验</span></h1><p><span>2012039 冯朝芃</span></p><h2><a name="实验概述" class="md-header-anchor"></a><span>实验概述</span></h2><p><span>使用控制变量法，基于给定的实验测试环境，通过改变延迟时间和丢包率，完成下面3组性能对比实验：（1）停等机制与滑动窗口机制性能对比；（2）滑动窗口机制中不同窗口大小对性能的影响；（3）有拥塞控制和无拥塞控制的性能比较。</span></p><p><span>这次实验中无特别说明均采用大小适中的2.jpg作为测试文件，被测程序不大量输出日志。</span></p><h2><a name="停等机制和滑动窗口对比" class="md-header-anchor"></a><span>停等机制和滑动窗口对比</span></h2><p><span>滑动窗口发送程序采用GBN算法，设置窗口大小为65536Bytes。</span></p><h3><a name="不设置时延控制丢包率" class="md-header-anchor"></a><span>不设置时延控制丢包率：</span></h3><p><span>实验结果展示表：</span></p><figure><table><thead><tr><th><span>丢包率（%）</span></th><th><span>0</span></th><th><span>3</span></th><th><span>5</span></th><th><span>10</span></th><th><span>20</span></th></tr></thead><tbody><tr><td><span>停等时间（sec）</span></td><td><span>7.929</span></td><td><span>658.126（超时180次）</span></td><td><span>1051.73（超时303次）</span></td><td><span>/</span></td><td><span>/</span></td></tr><tr><td><span>停等吞吐率（Bytes/sec）</span></td><td><span>743915</span></td><td><span>8962.58</span></td><td><span>5608.38</span></td><td><span>/</span></td><td><span>/</span></td></tr><tr><td><span>滑动窗口时间（sec）</span></td><td><span>9.327</span></td><td><span>209.239</span></td><td><span>190.28</span></td><td><span>196.778</span></td><td><span>202.514</span></td></tr><tr><td><span>滑动窗口吞吐率（Bytes/sec）</span></td><td><span>632412</span></td><td><span>28190.3</span></td><td><span>31018.8</span></td><td><span>29975.4</span></td><td><span>29126.4</span></td></tr></tbody></table></figure><p><span>使用图表展示上述结果：</span></p><p><img src="C:\Users\'Confidence'F\AppData\Roaming\Typora\typora-user-images\image-20221230214655664.png" referrerpolicy="no-referrer" alt="image-20221230214655664"></p><p><span>上图中，折线反映的是吞吐率变化情况，柱状图反应传输时间。</span></p><h3><a name="性能分析" class="md-header-anchor"></a><span>性能分析：</span></h3><p><span>对上述结果进行分析，可以看到在没有时延、丢包的情况下，停等机制因为代码简单、运行较快，在传输吞吐率上略胜一筹。然而一旦引入丢包，停等机制因为频繁超时重传导致效率严重下降，在超时时间均为3s的情况下，两种方法的吞吐率差异显著，滑动窗口明显更好。</span></p><p><span>停等机制因为耗时过长，“/”部分表示没有进行测试。</span></p><h3><a name="不设置丢包率控制时延" class="md-header-anchor"></a><span>不设置丢包率控制时延：</span></h3><p><span>实验结果展示表：</span></p><figure><table><thead><tr><th><span>时延（ms）</span></th><th><span>0</span></th><th><span>3</span></th><th><span>5</span></th><th><span>10</span></th><th><span>15</span></th></tr></thead><tbody><tr><td><span>停等时间（sec）</span></td><td><span>7.929</span></td><td><span>185.61</span></td><td><span>192.978</span></td><td><span>274.452</span></td><td><span>281.556</span></td></tr><tr><td><span>停等吞吐率（Bytes/sec）</span></td><td><span>743915</span></td><td><span>31779</span></td><td><span>30565.7</span></td><td><span>21491.9</span></td><td><span>20949.7</span></td></tr><tr><td><span>滑动窗口时间（sec）</span></td><td><span>9.327</span></td><td><span>189.976</span></td><td><span>198.587</span></td><td><span>234.738</span></td><td><span>544.695（176次重传）</span></td></tr><tr><td><span>滑动窗口吞吐率（Bytes/sec）</span></td><td><span>632412</span></td><td><span>31048.7</span></td><td><span>29702.4</span></td><td><span>25128</span></td><td><span>10829</span></td></tr></tbody></table></figure><p><img src="C:\Users\'Confidence'F\AppData\Roaming\Typora\typora-user-images\image-20221230215319088.png" referrerpolicy="no-referrer" alt="image-20221230215319088"></p><p><span>上图中，折线反映的是吞吐率变化情况，柱状图反应传输时间。</span></p><p><span>性能分析：</span></p><p><span>由上图可知，在不引入丢包而只有时延的情况下，停等和滑动窗口的传输效率不相上下。但随着时延的增大，由于滑动窗口对时延较敏感（本人的实现中精确记录了每个窗口中数据包的发送时间），频繁的出现超时重传，且滑动窗口采用GBN方法，重传数据量大，因而效率明显下降。</span></p><h2><a name="滑动窗口机制中不同窗口大小对性能的影响" class="md-header-anchor"></a><span>滑动窗口机制中不同窗口大小对性能的影响</span></h2><p><span>滑动窗口发送程序采用GBN算法，窗口大小取16384、32768、65536Bytes进行比较。</span></p><h3><a name="不设置时延控制丢包率-n302" class="md-header-anchor"></a><span>不设置时延控制丢包率：</span></h3><p><span>实验结果展示表：</span></p><figure><table><thead><tr><th><span>丢包率（%）</span></th><th><span>0</span></th><th><span>3</span></th><th><span>5</span></th></tr></thead><tbody><tr><td><span>滑动窗口16384时间（sec）</span></td><td><span>9.227</span></td><td><span>174.942</span></td><td><span>169.638</span></td></tr><tr><td><span>滑动窗口16384吞吐率（Bytes/sec）</span></td><td><span>639266</span></td><td><span>33716.9</span></td><td><span>34771.1</span></td></tr><tr><td><span>滑动窗口32768时间（sec）</span></td><td><span>8.402</span></td><td><span>157.69</span></td><td><span>163.292</span></td></tr><tr><td><span>滑动窗口32768吞吐率（Bytes/sec）</span></td><td><span>702036</span></td><td><span>37405.7</span></td><td><span>36122.4</span></td></tr><tr><td><span>滑动窗口65536时间（sec）</span></td><td><span>9.327</span></td><td><span>209.239</span></td><td><span>190.28</span></td></tr><tr><td><span>滑动窗口65536吞吐率（Bytes/sec）</span></td><td><span>632412</span></td><td><span>28190.3</span></td><td><span>31018.8</span></td></tr></tbody></table></figure><p><img src="C:\Users\'Confidence'F\AppData\Roaming\Typora\typora-user-images\image-20221230222410954.png" referrerpolicy="no-referrer" alt="image-20221230222410954"></p><p><span>上图中，折线反映的是吞吐率变化情况，柱状图反应传输时间。</span></p><h3><a name="性能分析-n174" class="md-header-anchor"></a><span>性能分析：</span></h3><p><span>发现不论丢包率是否为0，传输吞吐率对于滑动窗口大小并非有某种线性对应的关系，从图中容易得知，无时延仅加入丢包时，当窗口取32768时传输效率最高。这也就启发我们应寻找最适合当前网络状况的窗口大小以获得最佳的传输速率。</span></p><h3><a name="不设置丢包率控制时延-n300" class="md-header-anchor"></a><span>不设置丢包率控制时延：</span></h3><p><span>实验结果展示表：</span></p><figure><table><thead><tr><th><span>时延（ms）</span></th><th><span>0</span></th><th><span>3</span></th><th><span>5</span></th></tr></thead><tbody><tr><td><span>滑动窗口16384时间（sec）</span></td><td><span>9.227</span></td><td><span>279.912</span></td><td><span>288.944</span></td></tr><tr><td><span>滑动窗口16384吞吐率（Bytes/sec）</span></td><td><span>639266</span></td><td><span>21072.7</span></td><td><span>20414</span></td></tr><tr><td><span>滑动窗口32768时间（sec）</span></td><td><span>8.402</span></td><td><span>213.266</span></td><td><span>224.626</span></td></tr><tr><td><span>滑动窗口32768吞吐率（Bytes/sec）</span></td><td><span>702036</span></td><td><span>27658</span></td><td><span>26259.2</span></td></tr><tr><td><span>滑动窗口65536时间（sec）</span></td><td><span>9.327</span></td><td><span>189.976</span></td><td><span>198.587</span></td></tr><tr><td><span>滑动窗口65536吞吐率（Bytes/sec）</span></td><td><span>632412</span></td><td><span>31048.7</span></td><td><span>29702.4</span></td></tr></tbody></table></figure><p><img src="C:\Users\'Confidence'F\AppData\Roaming\Typora\typora-user-images\image-20221230222759932.png" referrerpolicy="no-referrer" alt="image-20221230222759932"></p><p><span>上图中，折线反映的是吞吐率变化情况，柱状图反应传输时间。</span></p><h3><a name="性能分析-n223" class="md-header-anchor"></a><span>性能分析：</span></h3><p><span>GBN算法对时延是较为敏感的，从图中可知，对于不同的时延，窗口越大传输效率越高，更大的窗口有利于一次发送更多的数据、提升传输效率。</span></p><p><span>但窗口也不能无限增大，由于路由器转发数据本身有一定的时延，如果窗口过大，等窗口中所有数据都发送完，最开始发送的数据包已经超时，导致重传，如此往复，可能导致性能降低。</span></p><h2><a name="有拥塞控制和无拥塞控制的性能比较" class="md-header-anchor"></a><span>有拥塞控制和无拥塞控制的性能比较</span></h2><p><span>这一部分使用给出的1.jpg文件进行测试。固定窗口版本设置窗口大小为65536Bytes。</span></p><h3><a name="不设置时延控制丢包率-n261" class="md-header-anchor"></a><span>不设置时延控制丢包率：</span></h3><figure><table><thead><tr><th><span>丢包率（%）</span></th><th><span>0</span></th><th><span>3</span></th><th><span>5</span></th></tr></thead><tbody><tr><td><span>有拥塞控制时间（sec）</span></td><td><span>3.755</span></td><td><span>42.797</span></td><td><span>44.045</span></td></tr><tr><td><span>有拥塞控制吞吐率（Bytes/sec）</span></td><td><span>494635</span></td><td><span>43399.1</span></td><td><span>42169.4</span></td></tr><tr><td><span>无拥塞控制时间（sec）</span></td><td><span>2.624</span></td><td><span>40.004</span></td><td><span>40.959</span></td></tr><tr><td><span>无拥塞控制吞吐率（Bytes/sec）</span></td><td><span>707833</span></td><td><span>46429.2</span></td><td><span>45346.6</span></td></tr></tbody></table></figure><p><img src="C:\Users\'Confidence'F\AppData\Roaming\Typora\typora-user-images\image-20221230225507557.png" referrerpolicy="no-referrer" alt="image-20221230225507557"></p><h3><a name="不设置丢包率控制时延-n260" class="md-header-anchor"></a><span>不设置丢包率控制时延：</span></h3><figure><table><thead><tr><th><span>时延（ms）</span></th><th><span>0</span></th><th><span>3</span></th><th><span>5</span></th></tr></thead><tbody><tr><td><span>有拥塞控制时间（sec）</span></td><td><span>3.755</span></td><td><span>60.913</span></td><td><span>69.357</span></td></tr><tr><td><span>有拥塞控制吞吐率（Bytes/sec）</span></td><td><span>494635</span></td><td><span>30491.9</span></td><td><span>26779.6</span></td></tr><tr><td><span>无拥塞控制时间（sec）</span></td><td><span>2.624</span></td><td><span>53.506</span></td><td><span>55.986</span></td></tr><tr><td><span>无拥塞控制吞吐率（Bytes/sec）</span></td><td><span>707833</span></td><td><span>34713</span></td><td><span>33175.3</span></td></tr></tbody></table></figure><p><img src="C:\Users\'Confidence'F\AppData\Roaming\Typora\typora-user-images\image-20221230225604224.png" referrerpolicy="no-referrer" alt="image-20221230225604224"></p><h3><a name="性能分析-n293" class="md-header-anchor"></a><span>性能分析：</span></h3><p><span>不难发现，在任何一种时延或丢包率之下，有拥塞控制的效果总是比没有的略差一些，这是因为本次实验使用的固定窗口大小65536Bytes，基本上就是可变窗口能够跑到的最大的拥塞控制窗口大小了，之后就会因为丢包、超时等导致拥塞控制窗口变小。在恢复过程中，拥塞控制窗口急剧减小，由于使用RENO+GBN的实现机制，重传的数据量较大，这样容易引起重复ACK再次触发重传，如此往复一段时间后虽然也能恢复到拥塞避免阶段，但效率无疑更低。这样固定窗口算法窗口大小保持恒定，加入拥塞控制后窗口大小波动，效率自然下降。</span></p></div>
+</body>
+</html>
